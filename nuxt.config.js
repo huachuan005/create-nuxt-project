@@ -29,7 +29,9 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '@/plugins/element-ui'
+    '@/plugins/element-ui',
+    '@/plugins/router',
+    '@/plugins/axios'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -40,7 +42,17 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+    // Doc: https://axios.nuxtjs.org/usage
+    '@nuxtjs/axios'
   ],
+  axios: {
+    // 代理
+    proxy: true
+  },
+  proxy: {
+    //  key(路由前缀): value(代理地址)
+    '/api': 'http://localhost:3001'
+  },
   /*
   ** Build configuration
   */
